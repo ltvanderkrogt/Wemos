@@ -8,18 +8,24 @@
 /* https://www.adafruit.com/ */
 
 
+/*  Modified: works as Access Point as well. Leon van der Krogt  
+ *  https://github.com/ltvanderkrogt/Wemos 
+ *  Wemos_ESP8266_WiFi_WS2812_RGB.ino 
+ *  html_pages.h <=== this file in the same directory as the .ino sketch. 
+ */ 
+
 #include <ESP8266WiFi.h>
 #include <WiFiClient.h>
 #include <ESP8266WebServer.h>
 #include <ESP8266mDNS.h>
 #include <Adafruit_NeoPixel.h>
 #include <EEPROM.h>
-#include "html_pages.h"
+#include "html_pages.h" //<=== this file in the same directory as the .ino sketch. 
 
 
-// Wemos als wifi Access Point webserver met adrres http://192.168.4.1  
-const char WiFiPassword[] = "12345678"; // Wemos als wifi Access Point webserver met adrres http://192.168.4.1  
-const char AP_NameChar[] = "JindraLEDControl" ; // Naam van de wifi access point. 
+// Wemos als wifi Access Point webserver with adrres http://192.168.4.1 After power on a WIFI Access Point will appear in your WiFI list. 
+const char WiFiPassword[] = "12345678";         // password of this device wifi access point. 
+const char AP_NameChar[] = "JindraLEDControl" ; // Name of this device wifi access point. 
 
 #define PIN 4        // aadresseerbare WS2812 LED aangesloten op pin 4. Communiceert via i2c 
 #define NUMPIXELS 1                // Number of LED's in your strip 
